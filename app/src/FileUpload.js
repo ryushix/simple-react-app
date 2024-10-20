@@ -11,7 +11,7 @@ const FileUpload = () => {
         const reader = new FileReader();
         reader.onloadend = async () => {
             const base64data = reader.result.split(',')[1];
-            const response = await fetch('URL_FUNCTION_CLOUD_ANDA', {
+            const response = await fetch('url_function', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
