@@ -2,8 +2,8 @@ const { Storage } = require('@google-cloud/storage');
 const storage = new Storage();
 
 exports.uploadFile = async(req, res) => {
-    res.set('Access-Control-Allow-Origin', '*'); // Tambahkan header ini untuk mengizinkan semua origin
-    res.set('Access-Control-Allow-Methods', 'POST'); // Izinkan metode POST
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST');
 
     if (req.method === 'OPTIONS') {
         res.set('Access-Control-Allow-Headers', 'Content-Type');
@@ -11,13 +11,13 @@ exports.uploadFile = async(req, res) => {
     }
 
     try {
-        const bucketName = 'bucket_name'; // Ganti dengan nama bucket Anda
-        const file = req.body.file; // File harus diupload sebagai base64 string
+        const bucketName = 'bucket_name'; // change the bucket name
+        const file = req.body.file;
         const buffer = Buffer.from(file, 'base64');
-        const fileName = req.body.fileName; // Nama file yang akan disimpan
+        const fileName = req.body.fileName;
 
         await storage.bucket(bucketName).file(fileName).save(buffer, {
-            contentType: 'application/octet-stream', // Ganti dengan contentType yang sesuai
+            contentType: 'application/octet-stream',
         });
 
         res.status(200).send('File uploaded successfully.');
