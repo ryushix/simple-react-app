@@ -59,7 +59,7 @@ function App() {
         {/* Input to choose file */}
         <input type="file" onChange={handleFileChange} />
         
-        {/* Button for upload upload */}
+        {/* Button for upload file*/}
         <button onClick={uploadFile}>Upload</button>
         
         {/* Tampilkan pesan status */}
