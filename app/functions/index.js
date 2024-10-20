@@ -23,7 +23,7 @@ exports.uploadFile = async(req, res) => {
             contentType: 'application/octet-stream',
         });
 
-        // make a public
+        // make file public a public
         await fileUpload.makePublic();
 
         // get UrlSigned
