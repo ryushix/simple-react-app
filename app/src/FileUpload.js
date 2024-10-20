@@ -10,7 +10,7 @@ const FileUpload = () => {
     const handleUpload = async () => {
         const reader = new FileReader();
         reader.onloadend = async () => {
-            const base64data = reader.result.split(',')[1]; // Ambil base64 string
+            const base64data = reader.result.split(',')[1];
             const response = await fetch('URL_FUNCTION_CLOUD_ANDA', {
                 method: 'POST',
                 headers: {
